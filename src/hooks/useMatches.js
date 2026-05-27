@@ -7,6 +7,7 @@ export const useMatches = () => {
   const [loading, setLoading] = useState(true)
 
   const fetchMatches = async () => {
+    setLoading(true)
     const { data, error } = await supabase
       .from('matches')
       .select(`
@@ -19,11 +20,14 @@ export const useMatches = () => {
       .limit(50)
 
     if (error) {
+      console.error('Error fetching matches:', error)
       toast.error('Error al cargar partidos')
+      setLoading(false)
       return []
     }
     
     setMatches(data || [])
+    setLoading(false)
     return data
   }
 
@@ -36,6 +40,7 @@ export const useMatches = () => {
       }])
 
     if (error) {
+      console.error('Error inserting match:', error)
       toast.error('Error al registrar el partido')
       return false
     }

@@ -7,6 +7,7 @@ export const useStats = (matches, players) => {
   const [loading, setLoading] = useState(true)
 
   const fetchStatsFromDB = async () => {
+    setLoading(true)
     const { data, error } = await supabase
       .from('stats_view')
       .select('*')
@@ -14,13 +15,18 @@ export const useStats = (matches, players) => {
 
     if (error) {
       if (error.message.includes('does not exist')) {
-        return calculateLocalStats()
+        console.log('Vista stats_view no encontrada, usando cálculo local')
+        calculateLocalStats()
+        setLoading(false)
+        return
       }
       toast.error('Error al cargar estadísticas')
+      setLoading(false)
       return []
     }
     
     setStats(data || [])
+    setLoading(false)
     return data
   }
 
@@ -78,11 +84,13 @@ export const useStats = (matches, players) => {
   }
 
   useEffect(() => {
-    if (players.length > 0) {
+    if (players.length > 0 || matches.length > 0) {
       fetchStatsFromDB()
+    } else if (players.length === 0 && matches.length === 0) {
+      // Si no hay datos, igual dejar de cargar
       setLoading(false)
     }
   }, [matches, players])
 
-  return { stats, loading, getTotalStats }
+  return { stats, loading, getTotalStats, refreshStats: fetchStatsFromDB }
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaTrophy, FaCalendarAlt } from 'react-icons/fa'
-import { formatDate } from '../../../utils/formatters'
+import { formatDate } from '../../utils/formatters'
 
 const MatchItem = ({ match }) => {
   return (
