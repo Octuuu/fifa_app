@@ -22,9 +22,9 @@ const MatchList = ({ matches, loading, onNewMatch }) => {
         <div className="flex items-center gap-2">
           <h2 className="text-xl font-bold text-gray-800">Partidos</h2>
         </div>
-        <Button onClick={onNewMatch} >
+        <button className='border-green-400 border p-1 rounded-3xl bg-green-100 text-green-700' onClick={onNewMatch} >
           Nuevo Partido
-        </Button>
+        </button>
       </div>
 
       {matches.length === 0 ? (
