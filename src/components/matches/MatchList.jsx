@@ -20,17 +20,16 @@ const MatchList = ({ matches, loading, onNewMatch }) => {
     <Card>
       <div className="flex justify-between items-center mb-6 flex-wrap gap-4">
         <div className="flex items-center gap-2">
-          <FaClock className="w-6 h-6 text-gray-600" />
-          <h2 className="text-2xl font-bold text-gray-800">Últimos Partidos</h2>
+          <h2 className="text-xl font-bold text-gray-800">Partidos</h2>
         </div>
-        <Button onClick={onNewMatch} icon={FaPlusCircle}>
+        <Button onClick={onNewMatch} >
           Nuevo Partido
         </Button>
       </div>
 
       {matches.length === 0 ? (
         <div className="text-center py-12 text-gray-500">
-          <FaUsers className="w-16 h-16 mx-auto mb-4 opacity-50" />
+          <FaUsers className="w-16 h-16 mx-auto mb-4 " />
           <p className="text-lg">No hay partidos registrados aún</p>
           <p className="text-sm">¡Registra tu primer partido!</p>
         </div>

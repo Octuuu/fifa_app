@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from '../ui/Card'
-import { FaTrophy, FaUsers } from 'react-icons/fa'
+import { FaUsers } from 'react-icons/fa'
 import clsx from 'clsx'
 
 const PlayersTable = ({ players, stats }) => {
@@ -23,8 +23,8 @@ const PlayersTable = ({ players, stats }) => {
   return (
     <Card>
       <div className="flex items-center gap-2 mb-6">
-        <FaTrophy className="w-6 h-6 text-yellow-600" />
-        <h2 className="text-2xl font-bold text-gray-800">Estadísticas de Jugadores</h2>
+      
+        <h2 className="text-xl font-bold text-gray-800">Estadísticas de Jugadores</h2>
       </div>
 
       <div className="overflow-x-auto">

@@ -13,8 +13,8 @@ const Button = ({
   ...props 
 }) => {
   const variants = {
-    primary: 'bg-blue-600 hover:bg-blue-700 text-white shadow-md hover:shadow-xl',
-    secondary: 'bg-gray-600 hover:bg-gray-700 text-white shadow-md hover:shadow-xl',
+    primary: 'border hover:shadow-xl',
+    secondary: ' shadow-md hover:shadow-xl',
     danger: 'bg-red-600 hover:bg-red-700 text-white shadow-md hover:shadow-xl',
     outline: 'border-2 border-gray-300 hover:border-gray-400 text-gray-700 hover:text-gray-900',
     ghost: 'hover:bg-gray-100 text-gray-700'
@@ -32,7 +32,7 @@ const Button = ({
       onClick={onClick}
       disabled={disabled}
       className={clsx(
-        'font-semibold rounded-xl transition-all duration-200 active:scale-95',
+        'font-semibold rounded-xl',
         variants[variant],
         sizes[size],
         disabled && 'opacity-50 cursor-not-allowed active:scale-100',
